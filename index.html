@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>An Toàn Từ Lửa - Bảo Vệ Cuộc Sống | Học Phòng Cháy Chữa Cháy</title>
+    <meta
+      name="description"
+      content="Học phòng cháy chữa cháy hiệu quả. Khóa học chuyên nghiệp, mẹo an toàn, thiết bị chữa cháy chất lượng cao. Bảo vệ gia đình và tài sản của bạn."
+    />
+    <meta
+      name="keywords"
+      content="phòng cháy chữa cháy, an toàn cháy nổ, thiết bị chữa cháy, khóa học phòng cháy"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Particles Container */
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      /* Hero Gradient Background */
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          #ff4500 0%,
+          #ff8c00 50%,
+          #ffd700 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Sparkle Animation */
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .sparkle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #ffd700;
+        border-radius: 50%;
+        animation: sparkle 2s infinite;
+      }
+
+      .sparkle:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .sparkle:nth-child(2) {
+        top: 40%;
+        left: 80%;
+        animation-delay: 0.5s;
+      }
+      .sparkle:nth-child(3) {
+        top: 60%;
+        left: 30%;
+        animation-delay: 1s;
+      }
+      .sparkle:nth-child(4) {
+        top: 80%;
+        left: 70%;
+        animation-delay: 1.5s;
+      }
+
+      /* Fire Glow Effect */
+      .fire-glow {
+        box-shadow: 0 0 20px rgba(255, 69, 0, 0.6),
+          0 0 40px rgba(255, 140, 0, 0.4);
+        animation: glow-pulse 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow-pulse {
+        from {
+          box-shadow: 0 0 20px rgba(255, 69, 0, 0.6),
+            0 0 40px rgba(255, 140, 0, 0.4);
+        }
+        to {
+          box-shadow: 0 0 30px rgba(255, 69, 0, 0.8),
+            0 0 60px rgba(255, 140, 0, 0.6);
+        }
+      }
+
+      /* 3D Rotation Animation */
+      @keyframes rotate3d {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+
+      .rotate-3d {
+        animation: rotate3d 10s linear infinite;
+        transform-style: preserve-3d;
+      }
+
+      .rotate-3d:hover {
+        animation-duration: 2s;
+      }
+
+      /* Fade In Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      /* Card Hover Effects */
+      .card-hover {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(220, 20, 60, 0.3);
+      }
+
+      .card-hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 215, 0, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .card-hover:hover::before {
+        left: 100%;
+      }
+
+      /* Button Sparkle Effect */
+      .btn-sparkle {
+        background: linear-gradient(45deg, #ff8c00, #ffd700, #ff4500);
+        background-size: 300% 300%;
+        animation: gradient-shift 3s ease infinite;
+        position: relative;
+        overflow: hidden;
+      }
+
+      @keyframes gradient-shift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .btn-sparkle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(255, 140, 0, 0.5);
+      }
+
+      /* Pulse Animation */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .pulse-animation {
+        animation: pulse 2s infinite;
+      }
+
+      /* Parallax Effect */
+      .parallax {
+        transform: translateZ(0);
+        transition: transform 0.1s ease-out;
+      }
+
+      /* Quiz Animation */
+      @keyframes explode {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      .explode-effect {
+        animation: explode 0.6s ease-out;
+      }
+
+      /* Countdown Timer */
+      .countdown-digit {
+        background: linear-gradient(45deg, #dc143c, #ff4500);
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 0 2px;
+        min-width: 50px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem !important;
+        }
+
+        .card-hover {
+          margin-bottom: 1rem;
+        }
+      }
+
+      /* Fire Icon SVG */
+      .fire-icon {
+        filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.7));
+      }
+
+      /* Testimonial Slider */
+      .testimonial-slider {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .testimonial-slide {
+        transition: transform 0.5s ease-in-out;
+      }
+
+      /* Star Rain Effect */
+      @keyframes starFall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .star-rain {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: #ffd700;
+        animation: starFall 3s linear infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section
+      class="hero-gradient min-h-screen flex items-center justify-center relative"
+    >
+      <div id="particles-js"></div>
+
+      <!-- Sparkle Elements -->
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center text-white">
+          <h1 class="hero-title text-6xl md:text-7xl font-bold mb-6 fade-in-up">
+            🔥 Học Phòng Cháy Chữa Cháy<br />
+            <span class="text-yellow-300">Ngay Hôm Nay!</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 fade-in-up opacity-90">
+            An Toàn Từ Lửa – Bảo Vệ Cuộc Sống
+          </p>
+
+          <!-- 3D Fire Extinguisher Icon -->
+          <div
+            class="rotate-3d fire-glow mx-auto mb-8 w-32 h-32 flex items-center justify-center"
+          >
+            <svg class="fire-icon w-24 h-24" viewBox="0 0 100 100" fill="none">
+              <rect
+                x="35"
+                y="20"
+                width="30"
+                height="60"
+                fill="#DC143C"
+                rx="5"
+              />
+              <circle cx="50" cy="15" r="8" fill="#FFD700" />
+              <rect x="45" y="5" width="10" height="15" fill="#FF8C00" rx="2" />
+              <path d="M25 35 L75 35 L70 45 L30 45 Z" fill="#FFD700" />
+            </svg>
+          </div>
+
+          <button
+            class="btn-sparkle text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+          >
+            🚨 Bắt Đầu Học Ngay
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prevention Tips Section -->
+    <section class="py-20 bg-white relative">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">
+          💡 Mẹo Phòng Ngừa Cháy Nổ
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="card-hover bg-white p-8 rounded-xl shadow-lg border-l-4 border-red-500"
+          >
+            <div class="text-4xl mb-4">🏠</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">
+              An Toàn Gia Đình
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Kiểm tra định kỳ hệ thống điện, không để quá tải ổ cắm và luôn tắt
+              các thiết bị khi không sử dụng.
+            </p>
+            <button
+              class="btn-sparkle text-white px-6 py-2 rounded-full text-sm font-medium"
+            >
+              Tìm Hiểu Thêm
+            </button>
+          </div>
+
+          <div
+            class="card-hover bg-white p-8 rounded-xl shadow-lg border-l-4 border-orange-500"
+          >
+            <div class="text-4xl mb-4">🏢</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">
+              Văn Phòng An Toàn
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Đảm bảo lối thoát hiểm thông thoáng, thiết bị chữa cháy đầy đủ và
+              nhân viên được đào tạo.
+            </p>
+            <button
+              class="btn-sparkle text-white px-6 py-2 rounded-full text-sm font-medium"
+            >
+              Tìm Hiểu Thêm
+            </button>
+          </div>
+
+          <div
+            class="card-hover bg-white p-8 rounded-xl shadow-lg border-l-4 border-yellow-500"
+          >
+            <div class="text-4xl mb-4">🏭</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">
+              Công Nghiệp
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Hệ thống báo cháy tự động, sprinkler và đào tạo nhân viên chuyên
+              nghiệp.
+            </p>
+            <button
+              class="btn-sparkle text-white px-6 py-2 rounded-full text-sm font-medium"
+            >
+              Tìm Hiểu Thêm
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section class="py-20 bg-gradient-to-r from-red-50 to-orange-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">
+          🧠 Kiểm Tra Kiến Thức Của Bạn
+        </h2>
+
+        <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
+          <div id="quiz-container">
+            <div class="quiz-question mb-6">
+              <h3 class="text-xl font-semibold mb-4">
+                Khi xảy ra cháy, bạn nên làm gì đầu tiên?
+              </h3>
+              <div class="space-y-3">
+                <button
+                  class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-red-500 transition-all"
+                  data-correct="false"
+                >
+                  A. Cố gắng dập lửa bằng nước
+                </button>
+                <button
+                  class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-red-500 transition-all"
+                  data-correct="true"
+                >
+                  B. Báo động và thoát hiểm an toàn
+                </button>
+                <button
+                  class="quiz-option w-full text-left p-4 border-gray-200 hover:border-red-500 transition-all"
+                  data-correct="false"
+                >
+                  C. Thu dọn đồ đạc quan trọng
+                </button>
+              </div>
+            </div>
+            <div id="quiz-result" class="hidden text-center">
+              <div class="text-6xl mb-4">🎉</div>
+              <h3 class="text-2xl font-bold text-green-600 mb-2">Chính xác!</h3>
+              <p class="text-gray-600">
+                Báo động và thoát hiểm là ưu tiên hàng đầu!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Registration Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">
+          📚 Đăng Ký Khóa Học Chuyên Nghiệp
+        </h2>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 class="text-2xl font-semibold mb-6 text-gray-800">
+                Khóa Học Bao Gồm:
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex items-center">
+                  <span class="text-2xl mr-3">✅</span>
+                  <span>Lý thuyết cơ bản về phòng cháy chữa cháy</span>
+                </li>
+                <li class="flex items-center">
+                  <span class="text-2xl mr-3">✅</span>
+                  <span>Thực hành sử dụng thiết bị chữa cháy</span>
+                </li>
+                <li class="flex items-center">
+                  <span class="text-2xl mr-3">✅</span>
+                  <span>Kỹ năng thoát hiểm trong tình huống khẩn cấp</span>
+                </li>
+                <li class="flex items-center">
+                  <span class="text-2xl mr-3">✅</span>
+                  <span>Chứng chỉ hoàn thành khóa học</span>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-xl"
+            >
+              <form id="registration-form" class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Họ và tên</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    placeholder="Nhập họ tên của bạn"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    placeholder="email@example.com"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Số điện thoại</label
+                  >
+                  <input
+                    type="tel"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    placeholder="0123456789"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Loại khóa học</label
+                  >
+                  <select
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  >
+                    <option>Cơ bản - Gia đình</option>
+                    <option>Nâng cao - Văn phòng</option>
+                    <option>Chuyên nghiệp - Công nghiệp</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full btn-sparkle text-white py-4 rounded-lg text-lg font-semibold"
+                >
+                  🎯 Đăng Ký Ngay
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-900 text-white relative overflow-hidden">
+      <!-- Star Rain Effect -->
+      <div class="star-rain" style="left: 10%; animation-delay: 0s"></div>
+      <div class="star-rain" style="left: 30%; animation-delay: 1s"></div>
+      <div class="star-rain" style="left: 50%; animation-delay: 2s"></div>
+      <div class="star-rain" style="left: 70%; animation-delay: 0.5s"></div>
+      <div class="star-rain" style="left: 90%; animation-delay: 1.5s"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          ⭐ Phản Hồi Từ Học Viên
+        </h2>
+
+        <div class="testimonial-slider max-w-4xl mx-auto">
+          <div class="testimonial-slide text-center">
+            <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm">
+              <div class="text-6xl mb-4">👨‍💼</div>
+              <p class="text-xl mb-6 italic">
+                "Khóa học rất thực tế và bổ ích. Tôi đã áp dụng được nhiều kiến
+                thức vào công ty của mình."
+              </p>
+              <h4 class="font-semibold text-lg">Nguyễn Văn An</h4>
+              <p class="text-gray-300">Giám đốc Công ty ABC</p>
+              <div class="flex justify-center mt-4">
+                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer with Countdown -->
+    <footer
+      class="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16"
+    >
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">
+            🎯 Webinar Miễn Phí Sắp Diễn Ra!
+          </h2>
+          <p class="text-xl mb-8">"Bí Quyết Phòng Cháy Chữa Cháy Hiệu Quả"</p>
+
+          <!-- Countdown Timer -->
+          <div class="flex justify-center space-x-4 mb-8">
+            <div class="text-center">
+              <div class="countdown-digit text-2xl" id="days">05</div>
+              <div class="text-sm mt-2">Ngày</div>
+            </div>
+            <div class="text-center">
+              <div class="countdown-digit text-2xl" id="hours">12</div>
+              <div class="text-sm mt-2">Giờ</div>
+            </div>
+            <div class="text-center">
+              <div class="countdown-digit text-2xl" id="minutes">30</div>
+              <div class="text-sm mt-2">Phút</div>
+            </div>
+            <div class="text-center">
+              <div class="countdown-digit text-2xl" id="seconds">45</div>
+              <div class="text-sm mt-2">Giây</div>
+            </div>
+          </div>
+
+          <button
+            class="pulse-animation bg-yellow-400 text-gray-900 px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-300 transition-all"
+          >
+            📅 Đăng Ký Webinar Miễn Phí
+          </button>
+        </div>
+
+        <div class="border-t border-white border-opacity-20 pt-8">
+          <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+              <h3 class="font-semibold text-lg mb-4">Liên Hệ</h3>
+              <p>📞 Hotline: 1900-1234</p>
+              <p>📧 Email: info@phongchay.vn</p>
+              <p>📍 Địa chỉ: 123 Đường ABC, TP.HCM</p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-lg mb-4">Dịch Vụ</h3>
+              <ul class="space-y-2">
+                <li>Đào tạo phòng cháy chữa cháy</li>
+                <li>Tư vấn hệ thống an toàn</li>
+                <li>Cung cấp thiết bị chữa cháy</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-lg mb-4">Theo Dõi Chúng Tôi</h3>
+              <div class="flex justify-center md:justify-start space-x-4">
+                <a
+                  href="#"
+                  class="text-2xl hover:text-yellow-300 transition-colors"
+                  >📘</a
+                >
+                <a
+                  href="#"
+                  class="text-2xl hover:text-yellow-300 transition-colors"
+                  >📷</a
+                >
+                <a
+                  href="#"
+                  class="text-2xl hover:text-yellow-300 transition-colors"
+                  >🐦</a
+                >
+                <a
+                  href="#"
+                  class="text-2xl hover:text-yellow-300 transition-colors"
+                  >📺</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="text-center mt-8 pt-8 border-t border-white border-opacity-20"
+          >
+            <p>&copy; 2024 An Toàn Từ Lửa. Tất cả quyền được bảo lưu.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+      // Particles.js Configuration
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: "#FFD700" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: { enable: false },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "top",
+            random: true,
+            straight: false,
+            out_mode: "out",
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+          },
+        },
+        retina_detect: true,
+      });
+
+      // Quiz Functionality
+      document.querySelectorAll(".quiz-option").forEach((option) => {
+        option.addEventListener("click", function () {
+          const isCorrect = this.dataset.correct === "true";
+          const quizContainer = document.getElementById("quiz-container");
+          const quizResult = document.getElementById("quiz-result");
+
+          if (isCorrect) {
+            // Add explosion effect
+            this.classList.add("explode-effect");
+            this.style.background = "linear-gradient(45deg, #10B981, #34D399)";
+            this.style.color = "white";
+
+            setTimeout(() => {
+              quizContainer.style.display = "none";
+              quizResult.classList.remove("hidden");
+
+              // Create particle explosion effect
+              createParticleExplosion(this);
+            }, 600);
+          } else {
+            this.style.background = "linear-gradient(45deg, #EF4444, #F87171)";
+            this.style.color = "white";
+            setTimeout(() => {
+              this.style.background = "";
+              this.style.color = "";
+            }, 1000);
+          }
+        });
+      });
+
+      // Particle Explosion Effect
+      function createParticleExplosion(element) {
+        const rect = element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement("div");
+          particle.style.position = "fixed";
+          particle.style.left = centerX + "px";
+          particle.style.top = centerY + "px";
+          particle.style.width = "4px";
+          particle.style.height = "4px";
+          particle.style.background = "#FFD700";
+          particle.style.borderRadius = "50%";
+          particle.style.pointerEvents = "none";
+          particle.style.zIndex = "9999";
+
+          document.body.appendChild(particle);
+
+          const angle = (i / 20) * Math.PI * 2;
+          const velocity = 100 + Math.random() * 100;
+          const vx = Math.cos(angle) * velocity;
+          const vy = Math.sin(angle) * velocity;
+
+          let x = 0,
+            y = 0;
+          const animate = () => {
+            x += vx * 0.02;
+            y += vy * 0.02 + 2; // gravity
+            particle.style.transform = `translate(${x}px, ${y}px)`;
+            particle.style.opacity = Math.max(0, 1 - Math.abs(y) / 200);
+
+            if (particle.style.opacity > 0) {
+              requestAnimationFrame(animate);
+            } else {
+              document.body.removeChild(particle);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      }
+
+      // Form Submission with Particle Effect
+      document
+        .getElementById("registration-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const button = this.querySelector('button[type="submit"]');
+          const originalText = button.textContent;
+
+          // Create success particle effect
+          createParticleExplosion(button);
+
+          button.textContent = "✅ Đăng Ký Thành Công!";
+          button.style.background = "linear-gradient(45deg, #10B981, #34D399)";
+
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.style.background = "";
+            this.reset();
+          }, 3000);
+        });
+
+      // Countdown Timer
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const eventDate = new Date(
+          now +
+            5 * 24 * 60 * 60 * 1000 +
+            12 * 60 * 60 * 1000 +
+            30 * 60 * 1000 +
+            45 * 1000
+        ).getTime();
+        const distance = eventDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("hours").textContent = hours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").textContent = minutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("seconds").textContent = seconds
+          .toString()
+          .padStart(2, "0");
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Parallax Scrolling Effect
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(".parallax");
+
+        parallaxElements.forEach((element) => {
+          const speed = element.dataset.speed || 0.5;
+          const yPos = -(scrolled * speed);
+          element.style.transform = `translateY(${yPos}px)`;
+        });
+      });
+
+      // Smooth Scrolling for CTA Buttons
+      document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          if (this.textContent.includes("Tìm Hiểu Thêm")) {
+            e.preventDefault();
+            document.querySelector("footer").scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Add Schema.org JSON-LD for SEO
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        name: "An Toàn Từ Lửa",
+        description: "Đào tạo phòng cháy chữa cháy chuyên nghiệp",
+        url: window.location.href,
+        telephone: "1900-1234",
+        email: "info@phongchay.vn",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "123 Đường ABC",
+          addressLocality: "TP.HCM",
+          addressCountry: "VN",
+        },
+        offers: {
+          "@type": "Course",
+          name: "Khóa học phòng cháy chữa cháy",
+          description:
+            "Đào tạo kỹ năng phòng cháy chữa cháy cơ bản đến nâng cao",
+        },
+      };
+
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(schema);
+      document.head.appendChild(script);
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'96e09968e3308b41',t:'MTc1NTAwODI3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
